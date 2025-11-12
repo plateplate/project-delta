@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ClickLess — fewer clicks demo</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>ClickLess</h1>
+    <p class="subtitle">Fixing tiny inputs so you click less — demo: month/year entry</p>
+    <nav class="top-nav">
+      <a href="#before">Before</a>
+      <a href="#after">After</a>
+      <a href="#readme">About / README</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="before" class="card">
+      <h2>Before — the inefficient UI</h2>
+      <p>This panel mimics a long dropdown/scroll wheel where selecting a month or year requires many clicks/scrolls.</p>
+      <form id="beforeForm" class="panel">
+        <label for="beforeMonth">Select month</label>
+        <select id="beforeMonth" aria-describedby="beforeHint">
+          <option value="">-- choose a month --</option>
+          <option>January</option><option>February</option><option>March</option>
+          <option>April</option><option>May</option><option>June</option>
+          <option>July</option><option>August</option><option>September</option>
+          <option>October</option><option>November</option><option>December</option>
+        </select>
+        <label for="beforeYear">Select year</label>
+        <select id="beforeYear">
+          <option value="">-- choose year --</option>
+          <script>for(let y=new Date().getFullYear(); y<new Date().getFullYear()+15; y++){document.write(`<option>${y}</option>`)}</script>
+        </select>
+        <div class="hint" id="beforeHint">This is slow: many options and dropdowns cause extra clicks.</div>
+        <button type="button" id="beforeStart" class="btn">Start task (Before)</button>
+        <button type="button" id="beforeComplete" class="btn-secondary">Complete (log)</button>
+      </form>
+    </section>
+    <section id="after" class="card">
+      <h2>After — improved prototype</h2>
+      <p>A compact month grid and quick-year control reduce clicks. Buttons are large, keyboard-focusable, and labelled for accessibility.</p>
+      <form id="afterForm" class="panel" aria-labelledby="afterLabel">
+        <div id="afterLabel" class="sr-only">Quick month and year picker</div>
+        <div class="month-grid" role="list" aria-label="Months"></div>
+        <div class="year-controls">
+          <label for="yearDisplay">Year</label>
+          <div class="year-row">
+            <button type="button" id="decYear" aria-label="decrement year" class="icon-btn">−</button>
+            <input id="yearDisplay" type="number" inputmode="numeric" aria-label="selected year" value="" />
+            <button type="button" id="incYear" aria-label="increment year" class="icon-btn">+</button>
+          </div>
+        </div>
+        <div class="hint">Click month then year. Works with keyboard. Faster and fewer clicks.</div>
+        <div class="controls">
+          <button type="button" id="afterStart" class="btn">Start task (After)</button>
+          <button type="button" id="afterComplete" class="btn-primary">Complete (log)</button>
+        </div>
+      </form>
+    </section>
+    <section id="readme" class="card">
+      <h2>About / Instructions</h2>
+      <p>Open DevTools Console to see metrics. Interact with BEFORE and AFTER panels. Compare click counts and times.</p>
+      <ul>
+        <li>Repo: Put source files in the repo root (index.html, styles.css, app.js).</li>
+        <li>Deploy: GitHub Pages from `main` branch or `gh-pages` branch.</li>
+        <li>Accessibility: Run WAVE and axe on your deployed URL.</li>
+      </ul>
+      <p>View source code in this repo once uploaded to GitHub.</p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>Made for UX assignment — ClickLess demo. No popups; console metrics only.</p>
+    <p>Suggested a11y tools: WAVE (https://wave.webaim.org/) and axe DevTools.</p>
+  </footer>
+  <script src="app.js" defer></script>
+</body>
+</html>

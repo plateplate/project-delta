@@ -1,0 +1,31 @@
+:root{
+  --maxw: 980px;
+  --accent: #0b5cff;
+  --muted: #666;
+  --card-bg: #fff;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;}
+body{background:#f4f6f8;color:#111;line-height:1.4;padding:1rem;display:flex;flex-direction:column;align-items:center}
+.container{max-width:var(--maxw);width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem}
+.site-header{width:100%;max-width:var(--maxw);margin-bottom:1rem}
+.site-header h1{margin:.1rem 0}
+.subtitle{margin:0;color:var(--muted)}
+.top-nav a{margin-right:.75rem;color:var(--accent);text-decoration:none}
+.card{background:var(--card-bg);padding:1rem;border-radius:10px;box-shadow:0 6px 18px rgba(20,20,40,.06)}
+.panel{display:flex;flex-direction:column;gap:.6rem}
+label{font-weight:600}
+select,input{padding:.5rem;border:1px solid #ddd;border-radius:6px;font-size:1rem}
+.btn, .btn-primary, .btn-secondary{padding:.6rem .8rem;border-radius:8px;border:0;cursor:pointer}
+.btn{background:#eee}
+.btn-primary{background:var(--accent);color:white}
+.btn-secondary{background:#fff;border:1px solid #ddd}
+.month-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;margin-bottom:.6rem}
+.month-grid button{padding:.6rem;border-radius:8px;border:1px solid #ddd;background:white;cursor:pointer}
+.month-grid button[aria-pressed='true']{outline:3px solid rgba(11,92,255,.14);box-shadow:inset 0 0 0 2px rgba(11,92,255,.06)}
+.year-row{display:flex;gap:.4rem;align-items:center}
+.icon-btn{padding:.4rem .6rem;border-radius:6px;border:1px solid #ddd;background:#fafafa}
+.hint{font-size:.9rem;color:var(--muted)}
+.site-footer{max-width:var(--maxw);width:100%;margin-top:1rem;color:var(--muted);font-size:.9rem;text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media (max-width:420px){.month-grid{grid-template-columns:repeat(3,1fr)}}
