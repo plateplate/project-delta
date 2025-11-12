@@ -43,7 +43,7 @@
 - Icons: lightweight inline SVG (no external icon libs)
 
 ## Attribution
-- Code authored by you (student name)
+- Code authorered by me
 - UI patterns inspired by common UX learnings (no copy-paste external assets)
 - Development assisted by AI (VSCode Copilot / GPT-5 mini) — used for quick scaffolding and suggestions.
 
