@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calendar — Before & After (Prototype)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav>
+    <h1>Calendar: Faster Day Entry</h1>
+    <div class="nav-links">
+      <a href="https://github.com/plateplate/calendar-improve" target="_blank" id="repo">View source code</a>
+      <a href="https://github.com/plateplate" target="_blank" id="profile">My GitHub profile</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="panel before">
+      <h2>Before — inefficient</h2>
+      <p class="lead">Example of a cramped, scroll-wheel style picker and dropdown-only calendar.</p>
+      <div class="mock-wheel" aria-hidden="true">
+        <div class="wheel-item">1</div>
+        <div class="wheel-item">...</div>
+        <div class="wheel-item large">42 (example)</div>
+        <div class="wheel-item">...</div>
+        <div class="wheel-item">60</div>
+      </div>
+      <p class="explain">
+        Problems: requires many fine-scroll gestures, hard to hit on mobile, and no quick way to see optional or
+        cancelled events at a glance.
+      </p>
+    </section>
+
+    <section class="panel after">
+      <h2>After — improved prototype</h2>
+      <p class="lead">Click a day, add events, toggle optional/cancelled. Try the test case below.</p>
+
+      <div class="controls">
+        <button id="startTest">Start test (measure)</button>
+        <div id="metrics">Clicks: 0 — Time: 0s</div>
+      </div>
+
+      <div class="calendar-grid" id="calendar">
+        <!-- days will be rendered here -->
+      </div>
+
+      <aside class="event-panel" id="eventPanel" aria-live="polite">
+        <h3>Events for <span id="selectedDate">—</span></h3>
+        <ul id="eventsList"></ul>
+
+        <form id="eventForm">
+          <input id="title" placeholder="Event title" required />
+          <input id="time" type="time" required />
+          <label><input type="checkbox" id="optional" /> optional</label>
+          <button type="submit">Add / Update</button>
+        </form>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <p>Prototype calendar UI for class project. Repo & profile links in nav. No alerts; metrics logged to console.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
